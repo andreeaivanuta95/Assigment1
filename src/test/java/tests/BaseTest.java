@@ -13,8 +13,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import utils.ConfigReader;
 
-import java.util.Properties;
-
 import static utils.Constants.COOKIE_PANEL_BUTTON_XPATH;
 
 public class BaseTest {
