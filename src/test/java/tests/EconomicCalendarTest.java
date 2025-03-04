@@ -47,6 +47,7 @@ public class EconomicCalendarTest extends BaseTest {
         setResolution(resolution);
         driver.navigate().refresh();
         initializePageObjects();
+        hideRiskBanner();
     }
 
     private void initializePageObjects() {

@@ -1,10 +1,7 @@
 package tests;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -81,9 +78,17 @@ public class BaseTest {
             WebElement cookiePopup = driver.findElement(By.xpath(String.format(COOKIE_PANEL_BUTTON_XPATH, "Accept All")));
             if (cookiePopup != null) {
                 cookiePopup.click();
+                System.out.println("Closing cookies popup");
             }
         } catch (Exception e) {
+            System.out.println("No cookies popup was displayed");
         }
+    }
+
+    void hideRiskBanner() {
+        ((JavascriptExecutor) driver).executeScript(
+                "document.querySelector('xm-risk-warning-banner').style.display = 'none';");
+        System.out.println("Hiding risk banner");
     }
 
     @AfterMethod
